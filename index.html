@@ -47,9 +47,7 @@ tracker.send('pageview', {
   'dimension3' : timeStamp,
   'dimension2' : sessionId
 })});
-yaCounter53284468.params({
-            'sid' : sid
-        });
+
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -66,7 +64,7 @@ yaCounter53284468.params({
    window.yaParams = {
     
      // 'client_id' : { '"{{tracker.get('clientId')}}"' : {"session_id" : { '"{{sessionId}}"' : {"hit_timestamp" : '"{{timeStamp}}"'}}}}
-     'client_id' : tracker.get('clientId')
+     'client_id' : 'sessionId'
   }
    ym(53284468, 'params', window.yaParams||{});
 </script>

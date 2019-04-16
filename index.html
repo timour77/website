@@ -66,8 +66,9 @@ tracker.send('pageview', {
    });
    clientId = 'temp'
    window.yaParams = {
-    
-     'client_id' : { clientId : {"session_id" : { sessionId : {"hit_timestamp" : timeStamp}}}}
+    'session_id' : [ sessionId, {'hit_timestamp' : timeStamp}],
+     // 'client_id' : { clientId : {'session_id' : { sessionId : {"hit_timestamp" : timeStamp}}}},
+     // 'session_id' : sessionId
      // 'timeStamp' : timeStamp
   }
    ym(53284468, 'params', window.yaParams||{});

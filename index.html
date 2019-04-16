@@ -37,13 +37,14 @@
   
     ga('create', 'UA-137673606-1', 'auto');
     ga('require', 'displayfeatures');
- 
+  var clientId = tracker.get('clientId');
   var timeStamp = getTimeStamp();
   var sessionId = getSessionId();
 ga('set', 'dimension3', timeStamp); 
 ga(function(tracker) {
 tracker.send('pageview', {
-  'dimension1' : tracker.get('clientId'),
+  // 'dimension1' : tracker.get('clientId'),
+  'dimension1' : clientId,
   'dimension3' : timeStamp,
   'dimension2' : sessionId
 })});
@@ -67,7 +68,7 @@ tracker.send('pageview', {
 
    window.yaParams = {
     
-     'client_id' : { tracker.get('clientId') : {"session_id" : { sessionId : {"hit_timestamp" : timeStamp}}}}
+     'client_id' : { clientId : {"session_id" : { sessionId : {"hit_timestamp" : timeStamp}}}}
      // 'timeStamp' : timeStamp
   }
    ym(53284468, 'params', window.yaParams||{});

@@ -37,10 +37,10 @@
   
     ga('create', 'UA-137673606-1', 'auto');
     ga('require', 'displayfeatures');
-  var clientId = tracker.get('clientId');
+  
   var timeStamp = getTimeStamp();
   var sessionId = getSessionId();
-ga('set', 'dimension3', timeStamp); 
+ 
 ga(function(tracker) {
 tracker.send('pageview', {
   'dimension1' : tracker.get('clientId'),
@@ -64,7 +64,7 @@ tracker.send('pageview', {
         accurateTrackBounce:true,
         webvisor:true
    });
-
+   clientId = 'temp'
    window.yaParams = {
     
      'client_id' : { clientId : {"session_id" : { sessionId : {"hit_timestamp" : timeStamp}}}}

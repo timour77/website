@@ -47,13 +47,13 @@ tracker.send('pageview', {
   'dimension3' : timeStamp,
   'dimension2' : sessionId
 })});
-window.yaParams = {'client_id' : 'google'}
-   ym(53284468, 'params', window.yaParams||{});
+
 
 
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
+
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -64,10 +64,11 @@ window.yaParams = {'client_id' : 'google'}
         accurateTrackBounce:true,
         webvisor:true
    });
+
    window.yaParams = {
     
      // 'client_id' : { '"{{tracker.get('clientId')}}"' : {"session_id" : { '"{{sessionId}}"' : {"hit_timestamp" : '"{{timeStamp}}"'}}}}
-     'client_id' : 'yandex'
+     'timeStamp' : timeStamp
   }
    // ym(53284468, 'params', window.yaParams||{});
 </script>

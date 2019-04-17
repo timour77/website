@@ -42,6 +42,7 @@
   var sessionId = getSessionId();
  
 ga(function(tracker) {
+  
 tracker.send('pageview', {
   'dimension1' : tracker.get('clientId'),
   'dimension3' : timeStamp,
@@ -64,7 +65,12 @@ tracker.send('pageview', {
         accurateTrackBounce:true,
         webvisor:true
    });
-   clientId = 'temp'
+       function getSessionIdYandex() 
+           {return new  Date().getTime() 
+                       + '.' + Math.random().toString(36).substring(5);}
+   clientId = ga(function(tracker) tracker.send('pageview', { tracker.get('clientId')}));
+   alert(clientId);
+   sessionIdYandex = getSessionIdYandex();
    // window.yaParams = {
     // sessionId : {sessionId : {timeStamp : timeStamp}},
      // 'client_id' : { clientId : {'session_id' : { sessionId : {"hit_timestamp" : timeStamp}}}},
@@ -72,37 +78,10 @@ tracker.send('pageview', {
      // 'timeStamp' : timeStamp
   //  }
    ym(53284468, 'params', window.yaParams||{});
-   var myParams = {sessionId : {sessionId : {timeStamp : timeStamp}}};
-ym(53284468, 'params', {params: myParams});
+//    var myParams = {sessionId : sessionIdYandex };
+// ym(53284468, 'params', {params: myParams});
 </script>
-<script>
-  try {
-    //функция для проверки наличия куки
-    function getCookie(name) {
-        var matches = document.cookie.match(new RegExp(
-                    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-    //проверяем, назначали ли мы session id в это сеансе
-    if (getCookie('sid') == undefined) {
-        //если нет, то генерим session id
-        var sid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,
-                function (c) {
-                var r = Math.random() * 16 | 0,
-                v = c == 'x' ? r : r & 0x3 | 0x8;
-                return v.toString(16);
-            });
-        //записываем в куку (время жизни - до конца сессии);
-        document.cookie = 'sid=' + sid;
-        //передаем session id в ga
-        ga('set', 'dimension1', sid);
-        //передаем session id в метрику
-        yaCounter53284468.params({
-            'sid' : sid
-        });
-    }
-} catch (e) {}
-</script>
+
 <noscript><div><img src="https://mc.yandex.ru/watch/53284468" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter --> 
 

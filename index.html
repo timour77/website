@@ -42,14 +42,11 @@
   var sessionId = getSessionId();
  
 ga(function(tracker) {
-  
 tracker.send('pageview', {
   'dimension1' : tracker.get('clientId'),
   'dimension3' : timeStamp,
   'dimension2' : sessionId
 })});
-
-
 
 </script>
 <!-- Yandex.Metrika counter -->
@@ -65,25 +62,15 @@ tracker.send('pageview', {
         accurateTrackBounce:true,
         webvisor:true
    });
-       function getSessionIdYandex() 
-           {return new  Date().getTime() 
-                       + '.' + Math.random().toString(36).substring(5);}
-   // clientId = function(){return function(model) {model.get('clientId');}};
-   clientId = function(){
-  var tracker = ga.getAll()[0];
-  return tracker.get('clientId');
-}
-   alert(clientId);
-   sessionIdYandex = getSessionIdYandex();
+
+  var clientId;
+  function callback() {
    window.yaParams = {
-    sessionId : {sessionId : {timeStamp : timeStamp}},
-     'client_id' : { clientId : {'session_id' : { sessionId : {"hit_timestamp" : timeStamp}}}},
-     // 'session_id' : sessionId
-     // 'timeStamp' : timeStamp
+     'client_id' : { [clientId] : {'session_id' : { [sessionId] : {"hit_timestamp" : timeStamp}}}},
    }
    ym(53284468, 'params', window.yaParams||{});
-//    var myParams = {sessionId : sessionIdYandex };
-// ym(53284468, 'params', {params: myParams});
+  }
+  ga(function(tracker){clientId = tracker.get('clientId'); callback(); });
 </script>
 
 <noscript><div><img src="https://mc.yandex.ru/watch/53284468" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

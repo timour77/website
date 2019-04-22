@@ -73,6 +73,15 @@ tracker.send('pageview', {
   ga(function(tracker){clientId = tracker.get('clientId'); callback(); });
 </script>
 
+<!-- <script>
+var clientId;
+function callback() {
+   window.yaParams = { 'client_id' : clientId };
+   ym(XXXXXXXX, 'params', window.yaParams||{});
+}
+ga(function(tracker){ clientId = tracker.get('clientId'); callback(); });
+</script> -->
+
 <noscript><div><img src="https://mc.yandex.ru/watch/53284468" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter --> 
 
@@ -124,7 +133,7 @@ tracker.send('pageview', {
               <div id="s" class="col s12 m3">
                 <h5 class="black-text">Ссылки</h5>
                 <ul>
-                  <li><a class="black-text text-lighten-3" href="link">href</a></li>
+                  <li><a class="black-text text-lighten-3" href="http://fischer-russia.com">http://fischer-russia.com</a></li>
                   <li><a class="black-text text-lighten-3" href="link1">href1</a></li>
                   <li><a class="black-text text-lighten-3" href="link2">href2</a></li>
                   </li>

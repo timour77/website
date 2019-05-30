@@ -21,39 +21,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
  
-    // function getTimeStamp() {
-    // var now = new Date();
-    // var tzo = -now.getTimezoneOffset();
-    // var dif = tzo >= 0 ? '+' : '-';
-    // var pad = function(num) {
-    //     var norm = Math.abs(Math.floor(num));
-    //     return (norm < 10 ? '0' : '') + norm;};
-    // return now.getFullYear()
-    //     + '-' + pad(now.getMonth()+1)
-    //     + '-' + pad(now.getDate())
-    //     + 'T' + pad(now.getHours())
-    //     + ':' + pad(now.getMinutes())
-    //     + ':' + pad(now.getSeconds())
-    //     + '.' + pad(now.getMilliseconds())
-    //     + dif + pad(tzo / 60)
-    //     + ':' + pad(tzo % 60);}
+    function getTimeStamp() {
+    var now = new Date();
+    var tzo = -now.getTimezoneOffset();
+    var dif = tzo >= 0 ? '+' : '-';
+    var pad = function(num) {
+        var norm = Math.abs(Math.floor(num));
+        return (norm < 10 ? '0' : '') + norm;};
+    return now.getFullYear()
+        + '-' + pad(now.getMonth()+1)
+        + '-' + pad(now.getDate())
+        + 'T' + pad(now.getHours())
+        + ':' + pad(now.getMinutes())
+        + ':' + pad(now.getSeconds())
+        + '.' + pad(now.getMilliseconds())
+        + dif + pad(tzo / 60)
+        + ':' + pad(tzo % 60);}
  
-    // function getSessionId() 
-    //        {return new  Date().getTime() 
-    //                    + '.' + Math.random().toString(36).substring(5);}
+    function getSessionId() 
+           {return new  Date().getTime() 
+                       + '.' + Math.random().toString(36).substring(5);}
   
     ga('create', 'UA-137673606-1', 'auto');
     ga('require', 'displayfeatures');
   
-  // var timeStamp = getTimeStamp();
-  // var sessionId = getSessionId();
+  var timeStamp = getTimeStamp();
+  var sessionId = getSessionId();
  
-// ga(function(tracker) {
-// tracker.send('pageview', {
-//   'dimension1' : tracker.get('clientId'),
-//   'dimension3' : timeStamp,
-//   'dimension2' : sessionId
-// })});
+ga(function(tracker) {
+tracker.send('pageview', {
+  'dimension1' : tracker.get('clientId'),
+  'dimension3' : timeStamp,
+  'dimension2' : sessionId
+})});
 
 </script>
 <!-- Yandex.Metrika counter -->
